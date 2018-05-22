@@ -1,0 +1,53 @@
+body{
+    background-image: url("https://cdn.lynda.com/course/512733/512733-636135275223866639-16x9.jpg");
+    background-size: cover;
+}
+header{
+    font-size: 20px;
+    color: rgb(90, 87, 87);
+}
+legend{
+    font-size: 40px;
+    color: white;
+}
+div fieldset{
+    width: 40px;
+    height: 310px;
+    padding-top: 60px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 60px;
+    background-color: green;
+    border-color: green;
+    border-radius: 30px;
+    margin: green;
+    opacity: 0.8;
+}
+input{
+    padding: 10px;
+    background-color: rgb(255, 207, 75);
+    opacity: 1;
+    border-radius: 15px;
+    border-color: rgb(255, 207, 75);
+    color: green;
+    font-size: 15px; 
+}
+p{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 20px;
+}
+#subBtn{
+    color: #fff;
+    background-color: black;
+    border-color: black;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#subBtn:hover{
+    cursor: pointer;
+    color: green;
+    background-color: rgb(255, 207, 75);
+    border-color: rgb(255, 207, 75);
+}
