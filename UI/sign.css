@@ -1,8 +1,16 @@
 body{
     background-image: url("https://cdn.lynda.com/course/512733/512733-636135275223866639-16x9.jpg");
+    background-size: cover;
+}
+fieldset{
+    width: 20px;
+    height: 410px;
 }
 
-fieldset{
-    text-align: center;
-    color: blueviolet;
+div{
+    padding-top: 40px;
+    padding-left: 30px;
+}
+input{
+    padding: 10px;
 }
