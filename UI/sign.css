@@ -17,13 +17,14 @@ div fieldset{
     width: 40px;
     height: 410px;
     padding-top: 60px;
-    padding-left: 30px;
-    padding-right: 40px;
-    padding-bottom: 140px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 95px;
     background-color: green;
     border-color: green;
     border-radius: 30px;
     margin: green;
+    opacity: 0.8;
 }
 input{
     padding: 10px;
