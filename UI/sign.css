@@ -12,6 +12,7 @@ header{
 legend{
     font-size: 40px;
     color: white;
+    text-shadow: 2px 2px 2px green;
 }
 div fieldset{
     width: 40px;
