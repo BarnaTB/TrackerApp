@@ -3,15 +3,23 @@ body{
     background-size: cover;
 }
 .signup{
-    padding-top: 0px;
+    padding-top: 40px;
+}
+header{
+    font-size: 20px;
+    color: rgb(90, 87, 87);
+}
+legend{
+    font-size: 40px;
+    color: white;
 }
 div fieldset{
     width: 40px;
     height: 410px;
-    padding-top: 40px;
+    padding-top: 60px;
     padding-left: 30px;
     padding-right: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 140px;
     background-color: green;
     border-color: green;
     border-radius: 30px;
@@ -26,11 +34,6 @@ input{
     color: green;
     font-size: 15px; 
 }
-h2{
-    text-align: center;
-    font-size: 35px;
-    color: rgb(90, 87, 87);
-}
 p{
     text-align: center;
     padding-top: 20px;
@@ -39,7 +42,7 @@ p{
 #subBtn{
     color: #fff;
     background-color: black;
-    border-color: white;
+    border-color: black;
     border-radius: 0px;
     padding-left: 20px;
     padding-right: 20px;
@@ -47,5 +50,6 @@ p{
 #subBtn:hover{
     cursor: pointer;
     color: green;
-    background-color: rgb(77, 75, 75);
+    background-color: rgb(255, 207, 75);
+    border-color: rgb(255, 207, 75);
 }
