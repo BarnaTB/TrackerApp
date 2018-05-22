@@ -2,15 +2,50 @@ body{
     background-image: url("https://cdn.lynda.com/course/512733/512733-636135275223866639-16x9.jpg");
     background-size: cover;
 }
-fieldset{
-    width: 20px;
-    height: 410px;
+.signup{
+    padding-top: 0px;
 }
-
-div{
+div fieldset{
+    width: 40px;
+    height: 410px;
     padding-top: 40px;
     padding-left: 30px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    background-color: green;
+    border-color: green;
+    border-radius: 30px;
+    margin: green;
 }
 input{
     padding: 10px;
+    background-color: rgb(255, 207, 75);
+    opacity: 1;
+    border-radius: 15px;
+    border-color: rgb(255, 207, 75);
+    color: green;
+    font-size: 15px; 
+}
+h2{
+    text-align: center;
+    font-size: 35px;
+    color: rgb(90, 87, 87);
+}
+p{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 20px;
+}
+#subBtn{
+    color: #fff;
+    background-color: black;
+    border-color: white;
+    border-radius: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#subBtn:hover{
+    cursor: pointer;
+    color: green;
+    background-color: rgb(77, 75, 75);
 }
