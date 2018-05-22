@@ -55,5 +55,5 @@ p{
 p, .welcome{
     color: #fff;
     padding-left: 30px;
-    text-shadow: 2px 2px 2px grey;
+    text-shadow: 2px 2px 2px rgb(105, 104, 104);
 }
