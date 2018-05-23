@@ -51,8 +51,16 @@ li a:hover{
     background-color: greenyellow;
     color: black
 }
-table{
+#tb1, #tb2, #tb3{
     padding-left: 30px;
-    font-size: 20px;
-    height: 50px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    width: 60%;
+}
+th, td{
+    text-align: left;
+    padding: 5px;
+}
+th{
+    background-color: green;
 }
