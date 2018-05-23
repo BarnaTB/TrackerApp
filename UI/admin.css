@@ -1,0 +1,69 @@
+body {
+    background-image: url("https://cdn.lynda.com/course/512733/512733-636135275223866639-16x9.jpg");
+    background-size: cover;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background-color: green;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: greenyellow;
+    color: black
+}
+
+#tb1,
+#tb2,
+#tb3 {
+    padding-left: 30px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    width: 60%;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 5px;
+}
+
+th {
+    background-color: white;
+    opacity: 0.8;
+}
+
+td:nth-child(even) {
+    background-color: grey;
+    color: rgb(43, 39, 39);
+}
+
+td:nth-child(odd) {
+    background-color: rgb(56, 55, 55);
+    color: white;
+    opacity: 0.8;
+}
+
+th {
+    text-emphasis-color: white;
+}
+
+#date {
+    padding-left: 100px;
+    padding-right: 50px;
+}
