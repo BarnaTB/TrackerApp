@@ -1,6 +1,8 @@
-body{
-    background-image: url("https://cdn.lynda.com/course/512733/512733-636135275223866639-16x9.jpg");
-    background-size: cover;
+body {
+    background: #BDBDBD;
+    align-content: center;
+    font-family: sans-serif;
+    text-align: center;
 }
 #req{
     color: #fff;
@@ -39,7 +41,7 @@ ul {
     margin: 0px;
     padding: 0px;
     overflow: hidden;
-    background-color: green;
+    background-color: #3E2723;
 }
 li {
     float: left;
@@ -52,8 +54,8 @@ li a{
     text-decoration: none;
 }
 li a:hover{
-    background-color: greenyellow;
-    color: black
+    background-color: #BCAAA4;
+    color: black;
 }
 #tb1, #tb2, #tb3{
     padding-left: 30px;
