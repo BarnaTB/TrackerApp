@@ -1,6 +1,6 @@
 body{
-    background-image: url("https://cdn.lynda.com/course/512733/512733-636135275223866639-16x9.jpg");
-    background-size: cover;
+    background: #BDBDBD;
+    align-content: center;
 }
 .signup{
     padding-top: 40px;
@@ -21,19 +21,18 @@ div fieldset{
     padding-left: 60px;
     padding-right: 60px;
     padding-bottom: 95px;
-    background-color: green;
-    border-color: green;
-    border-radius: 30px;
-    margin: green;
-    opacity: 0.8;
+    background-color: #6D4C41;
+    border-color: #BCAAA4;
+    margin: 2px;
+    filter: drop-shadow();
 }
 input{
-    padding: 10px;
-    background-color: rgb(255, 207, 75);
-    opacity: 1;
-    border-radius: 15px;
-    border-color: rgb(255, 207, 75);
-    color: green;
+    padding: 10px 20px 10px 20px;
+    background-color: #EEEEEE;
+    opacity: 0.8;
+    border-radius: 20px;
+    border-color: #EEEEEE;
+    color: #6D4C41;
     font-size: 15px; 
 }
 p{
@@ -43,15 +42,14 @@ p{
 }
 #subBtn{
     color: #fff;
-    background-color: black;
-    border-color: black;
-    border-radius: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
+    background-color: #4E342E;
+    border-color: #EEEEEE;
+    border-radius: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    opacity: 1;
 }
 #subBtn:hover{
     cursor: pointer;
-    color: green;
-    background-color: rgb(255, 207, 75);
-    border-color: rgb(255, 207, 75);
+    background-color: #212121;
 }
