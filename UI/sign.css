@@ -1,49 +1,59 @@
-body{
+body {
     background: #BDBDBD;
     align-content: center;
+    font-family: sans-serif;
+    text-align: center;
 }
-.signup{
-    padding-top: 40px;
+
+.signup {
+    padding-left: 480px;
+    padding-top: 30px;
 }
-header{
+
+header {
     font-size: 20px;
     color: rgb(90, 87, 87);
 }
-legend{
+
+legend {
     font-size: 40px;
-    color: white;
-    text-shadow: 2px 2px 2px green;
+    color: #3E2723;
+    text-shadow: 2px 2px 2px #BCAAA4;
 }
-div fieldset{
+
+div fieldset {
     width: 40px;
     height: 410px;
     padding-top: 60px;
     padding-left: 60px;
     padding-right: 60px;
     padding-bottom: 95px;
-    background-color: #6D4C41;
-    border-color: #BCAAA4;
+    background-color: #fff;
+    border-color: #fff;
     margin: 2px;
     filter: drop-shadow();
 }
+
 input{
     padding: 10px 20px 10px 20px;
-    background-color: #EEEEEE;
+    background-color: #BDBDBD;
     opacity: 0.8;
     border-radius: 20px;
-    border-color: #EEEEEE;
-    color: #6D4C41;
+    border-color: #E0E0E0;
+    color: #3E2723;
     font-size: 15px; 
 }
-p{
+
+p {
     text-align: center;
     padding-top: 20px;
     font-size: 20px;
 }
+
 #subBtn{
     color: #fff;
     background-color: #4E342E;
-    border-color: #EEEEEE;
+    border-color: #795548;
     border-radius: 20px;
     padding-left: 100px;
     padding-right: 100px;
@@ -51,5 +61,5 @@ p{
 }
 #subBtn:hover{
     cursor: pointer;
-    background-color: #212121;
+    background-color: #3E2723;
 }
