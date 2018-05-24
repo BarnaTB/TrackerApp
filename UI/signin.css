@@ -1,59 +1,77 @@
-body{
-    background-image: url("https://cdn.lynda.com/course/512733/512733-636135275223866639-16x9.jpg");
-    background-size: cover;
+body {
+    background: #BDBDBD;
+    align-content: center;
 }
-header{
+
+.signup {
+    padding-left: 480px;
+}
+
+header {
     font-size: 20px;
     color: rgb(90, 87, 87);
 }
-legend{
+
+legend {
     font-size: 40px;
-    color: white;
-    text-shadow: 2px 2px 2px green; 
+    color: #3E2723;
+    text-shadow: 2px 2px 2px #BCAAA4;
 }
-div fieldset{
+
+div fieldset {
     width: 40px;
-    height: 180px;
+    height: 160px;
     padding-top: 60px;
     padding-left: 60px;
     padding-right: 60px;
-    padding-bottom: 60px;
-    background-color: green;
-    border-color: green;
-    border-radius: 30px;
-    margin: green;
-    opacity: 0.8;
+    padding-bottom: 95px;
+    background-color: #fff;
+    border-color: #fff;
+    margin: 2px;
+    filter: drop-shadow();
 }
+
 input{
-    padding: 10px;
-    background-color: rgb(255, 207, 75);
-    opacity: 1;
-    border-radius: 15px;
-    border-color: rgb(255, 207, 75);
-    color: green;
+    padding: 10px 20px 10px 20px;
+    background-color: #BDBDBD;
+    opacity: 0.8;
+    border-radius: 20px;
+    border-color: #EEEEEE;
+    color: #3E2723;
     font-size: 15px; 
 }
-p{
+
+p {
     text-align: center;
     padding-top: 20px;
     font-size: 20px;
 }
+
 #subBtn{
     color: #fff;
-    background-color: black;
-    border-color: black;
-    border-radius: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
+    background-color: #4E342E;
+    border-color: #EEEEEE;
+    border-radius: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    opacity: 1;
 }
 #subBtn:hover{
     cursor: pointer;
-    color: green;
-    background-color: rgb(255, 207, 75);
-    border-color: rgb(255, 207, 75);
+    background-color: #3E2723;
 }
-p, .welcome{
+
+p,
+.welcome {
     color: #fff;
     padding-left: 30px;
     text-shadow: 2px 2px 2px rgb(105, 104, 104);
+}
+
+footer {
+    text-align: center;
+}
+
+div {
+    text-align: center;
 }
