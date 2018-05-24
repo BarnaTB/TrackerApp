@@ -59,13 +59,13 @@ th {
 }
 
 td:nth-child(even) {
-    background-color: grey;
-    color: rgb(43, 39, 39);
+    background-color: #4E342E;
+    color: #ECEFF1;
 }
 
 td:nth-child(odd) {
-    background-color: rgb(56, 55, 55);
-    color: white;
+    background-color: #795548;
+    color: #D7CCC8;
     opacity: 0.8;
 }
 
@@ -78,11 +78,12 @@ th {
     padding-right: 50px;
     padding-top: 30px;
 }
-.header{
+
+.header {
     padding-top: 50px;
 }
 
-button {
+#approve {
     background-color: rgb(43, 39, 39);
     color: white;
     padding: 5px;
