@@ -1,6 +1,8 @@
 body {
-    background-image: url("https://cdn.lynda.com/course/512733/512733-636135275223866639-16x9.jpg");
-    background-size: cover;
+    background: #e6ecf0;
+    text-align: center;
+    font-family: sans-serif;
+
 }
 
 ul {
@@ -8,7 +10,7 @@ ul {
     margin: 0px;
     padding: 0px;
     overflow: hidden;
-    background-color: green;
+    background-color: #212121;
 }
 
 li {
@@ -24,17 +26,20 @@ li a {
 }
 
 li a:hover {
-    background-color: greenyellow;
-    color: black
+    background-color: #424242;
+    color: #fff;
 }
 
 #tb1,
 #tb2,
 #tb3 {
-    padding-left: 30px;
+    align: center;
+    padding-left: 100px;
     padding-bottom: 10px;
+    padding-right: 0px;
     font-size: 18px;
     width: 60%;
+    filter: drop-shadow(100%);
 }
 
 th,
@@ -67,17 +72,20 @@ th {
     padding-left: 100px;
     padding-right: 50px;
 }
-button{
+
+button {
     background-color: rgb(43, 39, 39);
     color: white;
     padding: 5px;
     border-color: rgb(43, 39, 39);
 }
-#approve:hover{
+
+#approve:hover {
     background-color: green;
     cursor: pointer;
 }
-#disapprove:hover{
+
+#disapprove:hover {
     background-color: red;
     cursor: pointer;
 }
