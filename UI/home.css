@@ -5,6 +5,13 @@ body {
     text-align: center;
 }
 
+#navbar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+}
+
 #req {
     color: #fff;
     background-color: #4e342e;
