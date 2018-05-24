@@ -2,7 +2,14 @@ body {
     background: #e6ecf0;
     text-align: center;
     font-family: sans-serif;
+}
 
+#navbar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    width: 2000px;
 }
 
 ul {
@@ -10,7 +17,7 @@ ul {
     margin: 0px;
     padding: 0px;
     overflow: hidden;
-    background-color: #212121;
+    background-color: #3E2723;
 }
 
 li {
@@ -26,20 +33,18 @@ li a {
 }
 
 li a:hover {
-    background-color: #424242;
-    color: #fff;
+    background-color: #BCAAA4;
+    color: black;
 }
 
 #tb1,
 #tb2,
 #tb3 {
-    align: center;
     padding-left: 100px;
     padding-bottom: 10px;
     padding-right: 0px;
     font-size: 18px;
     width: 60%;
-    filter: drop-shadow(100%);
 }
 
 th,
@@ -71,6 +76,10 @@ th {
 #date {
     padding-left: 100px;
     padding-right: 50px;
+    padding-top: 30px;
+}
+.header{
+    padding-top: 50px;
 }
 
 button {
