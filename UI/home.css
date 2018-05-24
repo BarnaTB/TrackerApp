@@ -1,41 +1,47 @@
 body {
-    background: #BDBDBD;
+    background: rgba(196, 196, 196, 0.4);
     align-content: center;
     font-family: sans-serif;
     text-align: center;
 }
-#req{
+
+#req {
     color: #fff;
-    background-color: black;
-    border-color: black;
+    background-color: #4e342e;
+    border-color: #EEEEEE;
     border-radius: 15px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 5px;
     padding-top: 5px;
 }
-#req:hover{
+
+#req:hover {
     cursor: pointer;
     color: whitesmoke;
-    background-color: rgb(44, 43, 43);
-    border-color: rgb(44, 43, 43);
+    background-color: #3E2723;
+    border-color: #3E2723;
 }
-#add{
+
+#add {
     color: #fff;
-    background-color: black;
-    border-color: black;
+    background-color: #4E342E;
+    border-color: #EEEEEE;
     border-radius: 15px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 5px;
     padding-top: 5px;
 }
-#add:hover{
+
+#add:hover {
     cursor: pointer;
     color: whitesmoke;
-    background-color: rgb(44, 43, 43);
-    border-color: rgb(44, 43, 43);
+    background-color: #3E2723;
+    border-color: #3E2723;
+    ;
 }
+
 ul {
     list-style-type: none;
     margin: 0px;
@@ -43,48 +49,66 @@ ul {
     overflow: hidden;
     background-color: #3E2723;
 }
+
 li {
     float: left;
 }
-li a{
+
+li a {
     display: inline-block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
-li a:hover{
+
+li a:hover {
     background-color: #BCAAA4;
     color: black;
 }
-#tb1, #tb2, #tb3{
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.mytab {
+    padding-left: 360px;
+}
+
+#tb1,
+#tb2,
+#tb3 {
     padding-left: 30px;
     padding-bottom: 10px;
     font-size: 18px;
     width: 60%;
 }
-th, td{
+
+th,
+td {
     text-align: left;
     padding: 5px;
 }
-th{
+
+th {
     background-color: white;
     opacity: 0.8;
 }
-td:nth-child(even){
-    background-color: grey;
-    color: rgb(43, 39, 39);
 
+td:nth-child(even) {
+    background-color: #4E342E;
+    color: #ECEFF1;
 }
-td:nth-child(odd){
-    background-color: rgb(56, 55, 55);
-    color: white;
+
+td:nth-child(odd) {
+    background-color: #795548;
+    color: #D7CCC8;
     opacity: 0.8;
 }
-th{
-    text-emphasis-color: white;
-}
-#date{
+
+#date {
     padding-left: 100px;
     padding-right: 50px;
 }
