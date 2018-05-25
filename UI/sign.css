@@ -1,4 +1,5 @@
 body {
+    
     background: #BDBDBD;
     align-content: center;
     font-family: sans-serif;
@@ -6,7 +7,7 @@ body {
 }
 
 .signup {
-    padding-left: 480px;
+    padding-left: 440px;
     padding-top: 30px;
 }
 
@@ -23,25 +24,27 @@ legend {
 
 div fieldset {
     width: 40px;
-    height: 410px;
+    height: 500px;
     padding-top: 60px;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 90px;
+    padding-right: 110px;
     padding-bottom: 95px;
     background-color: #fff;
-    border-color: #fff;
-    margin: 2px;
-    filter: drop-shadow();
+    border: none;
+    outline: none;
+    border-radius: 5px;
+
 }
 
-input{
+input {
     padding: 10px 20px 10px 20px;
-    background-color: #BDBDBD;
     opacity: 0.8;
-    border-radius: 20px;
-    border-color: #E0E0E0;
+    border: none;
+    outline: none;
+
+    border-bottom: 1px solid #BDBDBD;
     color: #3E2723;
-    font-size: 15px; 
+    font-size: 15px;
 }
 
 p {
@@ -50,16 +53,18 @@ p {
     font-size: 20px;
 }
 
-#subBtn{
+#subBtn {
     color: #fff;
     background-color: #4E342E;
     border-color: #795548;
     border-radius: 20px;
+    width: 100%;
     padding-left: 100px;
     padding-right: 100px;
     opacity: 1;
 }
-#subBtn:hover{
+
+#subBtn:hover {
     cursor: pointer;
     background-color: #3E2723;
 }
