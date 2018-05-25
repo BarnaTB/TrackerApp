@@ -1,12 +1,17 @@
 body {
-    background: rgba(196, 196, 196, 0.4);
+    /* background-image: url("https://harborbayatmacdill.com/wp-content/uploads/2014/01/Announcement-1-1024x530.jpg"); */
+    background: url("https://harborbayatmacdill.com/wp-content/uploads/2014/01/Announcement-1-1024x530.jpg");
     align-content: center;
     font-family: sans-serif;
     text-align: center;
+    background-size: cover;
 }
 
 .header {
     padding-top: 60px;
+    font-family: 'Playfair Display SC', serif;
+    font-size: 40px;
+    margin-bottom: 15px;
 }
 
 #req {
@@ -46,15 +51,12 @@ body {
     ;
 }
 
-div ul {
-    background-size: cover;
-}
 
 ul {
     list-style-type: none;
     margin: 0 0 0 0;
     padding: 0px;
-    padding-left: 500px;
+    padding-left: 460px;
     overflow: hidden;
     background-color: #3E2723;
     position: fixed;
