@@ -5,16 +5,8 @@ body {
     text-align: center;
 }
 
-.header{
+.header {
     padding-top: 60px;
-}
-
-#fixed-nav-bar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    z-index: 9999;
-    width: 2000px;
 }
 
 #req {
@@ -54,12 +46,23 @@ body {
     ;
 }
 
+div ul {
+    background-size: cover;
+}
+
 ul {
     list-style-type: none;
-    margin: 0px;
+    margin: 0 0 0 0;
     padding: 0px;
+    padding-left: 500px;
     overflow: hidden;
     background-color: #3E2723;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    width: 200%;
+    height: 45px;
 }
 
 li {
