@@ -1,6 +1,5 @@
 body {
-    
-    background: #BDBDBD;
+    background-image: url("http://blog.hostbaby.com/wp-content/uploads/2013/07/scuffedstatic_red_1920x1234.jpg");
     align-content: center;
     font-family: sans-serif;
     text-align: center;
@@ -13,13 +12,12 @@ body {
 
 header {
     font-size: 20px;
-    color: rgb(90, 87, 87);
+    color: #fff;
 }
 
 legend {
     font-size: 40px;
-    color: #3E2723;
-    text-shadow: 2px 2px 2px #BCAAA4;
+    color: #8D6E63;
 }
 
 div fieldset {
@@ -33,7 +31,6 @@ div fieldset {
     border: none;
     outline: none;
     border-radius: 5px;
-
 }
 
 input {
@@ -41,7 +38,6 @@ input {
     opacity: 0.8;
     border: none;
     outline: none;
-
     border-bottom: 1px solid #BDBDBD;
     color: #3E2723;
     font-size: 15px;
