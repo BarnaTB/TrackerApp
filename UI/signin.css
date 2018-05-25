@@ -6,7 +6,7 @@ body {
 }
 
 .signup {
-    padding-left: 480px;
+    padding-left: 440px;
 }
 
 #header {
@@ -23,14 +23,13 @@ body {
 }
 
 div fieldset {
-    width: 40px;
+    width: 80px;
     height: 340px;
     padding-top: 60px;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 100px;
+    padding-right: 100px;
     padding-bottom: 95px;
     background-color: #fff;
-    border-color: #fff;
     border: none;
     outline: none;
     border-radius: 5px;
@@ -54,7 +53,7 @@ p {
     color: #fff;
 }
 
-#dont{
+#dont {
     color: black;
     font-weight: bold;
 }
