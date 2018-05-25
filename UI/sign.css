@@ -10,17 +10,22 @@ body {
     padding-top: 30px;
 }
 
-header {
-    font-size: 20px;
+#header {
+    font-size: 30px;
     color: #fff;
+    font-weight: bold;
+    font-family: Helvetica;
 }
 
 .signup_form_div{
+    margin-bottom: 50px;
+    font-weight: bold;
+    font-size: 30px;
 }
 
 div fieldset {
     width: 40px;
-    height: 500px;
+    height: 520x;
     padding-top: 60px;
     padding-left: 90px;
     padding-right: 110px;
