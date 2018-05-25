@@ -20,31 +20,35 @@ legend {
 
 div fieldset {
     width: 40px;
-    height: 160px;
+    height: 250px;
     padding-top: 60px;
     padding-left: 60px;
     padding-right: 60px;
     padding-bottom: 95px;
     background-color: #fff;
     border-color: #fff;
-    margin: 2px;
-    filter: drop-shadow();
+    border: none;
+    outline: none;
+    border-radius: 5px;
 }
 
 input{
     padding: 10px 20px 10px 20px;
-    background-color: #BDBDBD;
     opacity: 0.8;
-    border-radius: 20px;
     border-color: #EEEEEE;
     color: #3E2723;
     font-size: 15px; 
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #BDBDBD;
+
 }
 
 p {
     text-align: center;
     padding-top: 20px;
     font-size: 20px;
+    color: #212121;
 }
 
 #subBtn{
@@ -63,9 +67,9 @@ p {
 
 p,
 .welcome {
-    color: #fff;
+
     padding-left: 30px;
-    text-shadow: 2px 2px 2px rgb(105, 104, 104);
+    font-size: 20px;
 }
 
 footer {
