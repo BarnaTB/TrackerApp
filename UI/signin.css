@@ -1,21 +1,25 @@
 body {
-    background: #BDBDBD;
+    background-image: url("http://blog.hostbaby.com/wp-content/uploads/2013/07/scuffedstatic_red_1920x1234.jpg");
     align-content: center;
+    font-family: sans-serif;
+    text-align: center;
 }
 
 .signup {
     padding-left: 480px;
 }
 
-header {
-    font-size: 20px;
-    color: rgb(90, 87, 87);
+#header {
+    font-size: 30px;
+    color: #fff;
+    font-weight: bold;
+    font-family: Helvetica;
 }
 
-legend {
-    font-size: 40px;
-    color: #3E2723;
-    text-shadow: 2px 2px 2px #BCAAA4;
+.signup_form_div {
+    margin-bottom: 50px;
+    font-weight: bold;
+    font-size: 30px;
 }
 
 div fieldset {
@@ -32,26 +36,25 @@ div fieldset {
     border-radius: 5px;
 }
 
-input{
+input {
     padding: 10px 20px 10px 20px;
     opacity: 0.8;
     border-color: #EEEEEE;
     color: #3E2723;
-    font-size: 15px; 
+    font-size: 15px;
     border: none;
     outline: none;
     border-bottom: 1px solid #BDBDBD;
-
 }
 
 p {
     text-align: center;
     padding-top: 20px;
     font-size: 20px;
-    color: #212121;
+    color: #fff;
 }
 
-#subBtn{
+#subBtn {
     color: #fff;
     background-color: #4E342E;
     border-color: #EEEEEE;
@@ -60,14 +63,14 @@ p {
     padding-right: 100px;
     opacity: 1;
 }
-#subBtn:hover{
+
+#subBtn:hover {
     cursor: pointer;
     background-color: #3E2723;
 }
 
 p,
 .welcome {
-
     padding-left: 30px;
     font-size: 20px;
 }
