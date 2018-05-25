@@ -9,13 +9,12 @@ body {
     padding-top: 60px;
 }
 
-.navbar {
+#navbar {
     position: fixed;
     top: 0;
     bottom: 0;
     z-index: 9999;
-    width: 100%;
-    height: 50px;
+    width: 2000px;
 }
 
 #req {
