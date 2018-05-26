@@ -9,11 +9,13 @@ body {
     left: 0;
     right: 0;
     z-index: 1;
+
     display: block;
     background-image: url("https://di-uploads-pod6.dealerinspire.com/jaguarwestashley/uploads/2018/04/Jaguar_Brake-Pads_Parts_1920x823-1024x439.jpg");
     width: 100%;
-    height: 800px;
+    height: 100%;
     background-size: cover;
+    
     -webkit-filter: blur(10px);
     -moz-filter: blur(10px);
     -o-filter: blur(10px);
