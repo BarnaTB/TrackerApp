@@ -78,6 +78,11 @@ div fieldset {
     padding-left: 440px;
 }
 
+.active {
+    background-color: rgb(83, 62, 55);
+    color: #fff;
+}
+
 .about_div {
     margin-bottom: 50px;
     font-weight: bold;
@@ -113,6 +118,8 @@ p {
     border-radius: 15px;
     padding-left: 20px;
     padding-right: 20px;
+    border: none;
+    outline: none;
 }
 
 #subBtn {
