@@ -61,6 +61,7 @@ li a:hover {
     background-color: #BCAAA4;
     color: black;
 }
+
 div fieldset {
     width: 110px;
     padding-top: 60px;
@@ -72,12 +73,14 @@ div fieldset {
     outline: none;
     border-radius: 5px;
 }
+
 p {
     text-align: center;
     padding-top: 20px;
     font-size: 20px;
     color: #3E2723;
 }
+
 .header {
     padding-top: 60px;
     font-family: 'Playfair Display SC', serif;
@@ -87,13 +90,15 @@ p {
     color: #ECEFF1;
     padding-left: 30px;
 }
-p{
+
+p {
     font-size: 20px;
     padding-top: 5px;
     color: white;
     text-shadow: 2px 2px 2px grey;
 }
-#subBtn{
+
+#subBtn {
     color: #fff;
     background-color: black;
     border-color: black;
@@ -101,12 +106,29 @@ p{
     padding-left: 20px;
     padding-right: 20px;
 }
-#subBtn:hover{
-    cursor: pointer;
-    color: green;
-    background-color: rgb(255, 207, 75);
-    border-color: rgb(255, 207, 75);
+
+#subBtn {
+    color: #fff;
+    background-color: #4E342E;
+    border-color: #EEEEEE;
+    border-radius: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    opacity: 1;
 }
-footer{
+
+#subBtn:hover {
+    cursor: pointer;
+    background-color: #3E2723;
+}
+
+p,
+.welcome {
+    padding-left: 30px;
+    font-size: 20px;
+}
+
+footer {
+    text-align: center;
     padding-top: 230px;
 }
