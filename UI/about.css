@@ -1,28 +1,91 @@
-body{
-    background-image: url("https://cdn.lynda.com/course/512733/512733-636135275223866639-16x9.jpg");
+body {
+    font-family: sans-serif;
+    text-align: center;
     background-size: cover;
 }
-legend{
-    font-size: 40px;
+
+.background-image {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: block;
+    background-image: url("https://di-uploads-pod6.dealerinspire.com/jaguarwestashley/uploads/2018/04/Jaguar_Brake-Pads_Parts_1920x823-1024x439.jpg");
+    width: 100%;
+    height: 800px;
+    background-size: cover;
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+}
+
+.content {
+    position: relative;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0 0 0 0;
+    padding: 0px;
+    padding-left: 460px;
+    overflow: hidden;
+    background-color: #3E2723;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    width: 200%;
+    height: 45px;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
     color: white;
-    text-shadow: 2px 2px 2px green;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
-header{
-    font-size: 20px;
-    color: rgb(90, 87, 87);
+
+li a:hover {
+    background-color: #BCAAA4;
+    color: black;
 }
-div fieldset{
-    width: 500px;
-    height: 100px;
+div fieldset {
+    width: 110px;
+    padding-top: 60px;
+    padding-left: 90px;
+    padding-right: 110px;
+    padding-bottom: 20px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+p {
+    text-align: center;
     padding-top: 20px;
-    padding-left: 60px;
-    padding-right: 60px;
-    padding-bottom: 95px;
-    background-color: green;
-    border-color: green;
-    border-radius: 30px;
-    margin: green;
-    opacity: 0.8;
+    font-size: 20px;
+    color: #3E2723;
+}
+.header {
+    padding-top: 60px;
+    font-family: 'Playfair Display SC', serif;
+    font-size: 40px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    color: #ECEFF1;
+    padding-left: 30px;
 }
 p{
     font-size: 20px;
