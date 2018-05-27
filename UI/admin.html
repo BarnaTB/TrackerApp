@@ -36,9 +36,14 @@
                     <a href="./signin.html">Log Out</a>
             </ul>
         </div>
+        <div class="tab">
+            <button class="tablinks" onclick="opentable(event, approve)">Approve</button>
+            <button class="tablinks" onclick="opentable(event, disapprove)">Disapprove</button>
+            <button class="tablinks" onclick="opentable(event, disapprove)">Request Status</button>
+        </div>
 
         <div class="mytab">
-            <table id="tb1">
+            <table id="Approve" class="tabcontent">
                 <p id="dt1">23/05/2018</p>
                 <br>
                 <tr>
@@ -87,8 +92,8 @@
             </table>
             <br>
             <br>
-            <table id="tb2">
-                <p id="dt2">23/05/2018 Resolve</p>
+            <table id="Disapprove" class="tabcontent">
+                <p id="dt2">23/05/2018</p>
                 <tr>
                     <th>Request Type</th>
                     <th>Category</th>
@@ -100,10 +105,10 @@
                     <td>Water</td>
                     <td>My sink is clogged.</td>
                     <td>
-                        <a href="admin_resolve.html">
-                            <button id="approve">Done</button>
-                        </a>
-                        <button id="disapprove" href="#">Pending</button>
+                        <!-- <a href="admin_resolve.html"> -->
+                        <button id="approve">Disapproved</button>
+                        <!-- </a> -->
+                        <!-- <button id="disapprove" href="#">Pending</button> -->
                     </td>
                 </tr>
                 <tr>
@@ -111,10 +116,10 @@
                     <td>Water</td>
                     <td>My pipe is broken and water is overflowing</td>
                     <td>
-                        <a href="admin_resolve.html">
-                            <button id="approve">Done</button>
-                        </a>
-                        <button id="disapprove" href="#">Pending</button>
+                        <!-- <a href="admin_resolve.html"> -->
+                        <button id="approve">Disapproved</button>
+                        <!-- </a> -->
+                        <!-- <button id="disapprove" href="#">Pending</button> -->
                     </td>
                 </tr>
                 <tr>
@@ -122,10 +127,10 @@
                     <td>Electricity</td>
                     <td>My power has been off for about 3 hours.</td>
                     <td>
-                        <a href="admin_resolve.html">
-                            <button id="approve">Done</button>
-                        </a>
-                        <button id="disapprove" href="#">Pending</button>
+                        <!-- <a href="admin_resolve.html"> -->
+                        <button id="approve">Disapproved</button>
+                        <!-- </a> -->
+                        <!-- <button id="disapprove" href="#">Pending</button> -->
                     </td>
                 </tr>
                 <tr>
@@ -133,31 +138,31 @@
                     <td>Environment</td>
                     <td>I need to plant some trees in my backyard.</td>
                     <td>
-                        <a href="admin_resolve.html">
-                            <button id="approve">Done</button>
-                        </a>
-                        <button id="disapprove" href="#">Pending</button>
+                        <!-- <a href="admin_resolve.html"> -->
+                        <button id="approve">Disapproved</button>
+                        <!-- </a> -->
+                        <!-- <button id="disapprove" href="#">Pending</button> -->
                     </td>
                 </tr>
 
             </table>
             <br>
             <br>
-            <table id="tb3">
+            <table id="Request Status" class="tabcontent">
                 <p id="dt3">23/05/2018</p>
                 <tr>
                     <th>Request Type</th>
                     <th>Category</th>
                     <th>Detail</th>
-                    <th>Approve/Disapprove</th>
+                    <th>Status</th>
                 </tr>
                 <tr>
                     <td>Replace</td>
                     <td>Water</td>
                     <td>The pipe from the toilet bowl is broken.</td>
                     <td>
-                        <button id="approve" href="#">Approve</button>
-                        <button id="disapprove" href="#">Disapprove</button>
+                        <button id="approve" href="#">Done</button>
+                        <button id="disapprove" href="#">Pending</button>
                     </td>
                 </tr>
                 <tr>
@@ -165,8 +170,8 @@
                     <td>Water</td>
                     <td>My sink is clogged.</td>
                     <td>
-                        <button id="approve" href="#">Approve</button>
-                        <button id="disapprove" href="#">Disapprove</button>
+                        <button id="approve" href="#">Done</button>
+                        <button id="disapprove" href="#">Pending</button>
                     </td>
                 </tr>
                 <tr>
@@ -174,14 +179,14 @@
                     <td>Environment</td>
                     <td>I need to plant some </td>
                     <td>
-                        <button id="approve" href="#">Approve</button>
-                        <button id="disapprove" href="#">Disapprove</button>
+                        <button id="approve" href="#">Done</button>
+                        <button id="disapprove" href="#">Pending</button>
                     </td>
                 </tr>
 
 
             </table>
-            <table id="tb3">
+            <!-- <table class="">
                 <p id="dt3">23/05/2018 Resolve</p>
                 <tr>
                     <th>Request Type</th>
@@ -194,37 +199,37 @@
                     <td>Water</td>
                     <td>The pipe from the toilet bowl is broken.</td>
                     <td>
-                        <a href="admin_resolve.html">
-                            <button id="approve">Done</button>
-                        </a>
-                        <button id="disapprove" href="#">Pending</button>
-                    </td>
+                        <!-- <a href="admin_resolve.html"> -->
+                        <!-- <button id="approve">Disapproved</button> -->
+                        <!-- </a> -->
+                        <!-- <button id="disapprove" href="#">Pending</button> -->
+                    <!-- </td>
                 </tr>
                 <tr>
                     <td>Repair</td>
                     <td>Water</td>
                     <td>My sink is clogged.</td>
-                    <td>
-                        <a href="admin_resolve.html">
-                            <button id="approve">Done</button>
-                        </a>
-                        <button id="disapprove" href="#">Pending</button>
-                    </td>
+                    <td> -->
+                        <!-- <a href="admin_resolve.html"> -->
+                        <!-- <button id="approve">Disapproved</button> -->
+                        <!-- </a> -->
+                        <!-- <button id="disapprove" href="#">Pending</button> -->
+                    <!-- </td>
                 </tr>
                 <tr>
                     <td>Replace</td>
                     <td>Environment</td>
                     <td>I need to plant some </td>
-                    <td>
-                        <a href="admin_resolve.html">
-                            <button id="approve">Done</button>
-                        </a>
-                        <button id="disapprove" href="#">Pending</button>
-                    </td>
-                </tr>
+                    <td> -->
+                        <!-- <a href="admin_resolve.html"> -->
+                        <!-- <button id="approve">Disapproved</button> -->
+                        <!-- </a> -->
+                        <!-- <button id="disapprove" href="#">Pending</button> -->
+                    <!-- </td> -->
+                <!-- </tr> -->
 
 
-            </table>
+            <!-- </table> -->
         </div>
         <div>
             <br>
