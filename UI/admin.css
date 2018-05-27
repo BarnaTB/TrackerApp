@@ -188,7 +188,7 @@ td:nth-child(odd) {
 
 #approve {
     color: #fff;
-    background-color: #4E342E;
+    background-color: #1B5E20;
     border-radius: 15px;
     padding-left: 20px;
     padding-right: 20px;
@@ -201,14 +201,14 @@ td:nth-child(odd) {
 #approve:hover {
     cursor: pointer;
     color: whitesmoke;
-    background-color: #1B5E20;
+    background-color: rgb(11, 65, 15);
     border: none;
     outline: none;
 }
 
 #disapprove {
     color: #fff;
-    background-color: #4E342E;
+    background-color: #b71c1c;
     border-radius: 15px;
     padding-left: 20px;
     padding-right: 20px;
@@ -221,7 +221,7 @@ td:nth-child(odd) {
 #disapprove:hover {
     cursor: pointer;
     color: whitesmoke;
-    background-color: #b71c1c;
+    background-color: #6b1010;
     border: none;
     outline: none;
 }
