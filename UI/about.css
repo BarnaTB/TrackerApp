@@ -138,11 +138,12 @@ p {
     padding-right: 100px;
     line-height: 40px;
     opacity: 1;
+    transition: 0.5s;
 }
 
 #subBtn:hover {
     cursor: pointer;
-    background-color: #3E2723;
+    background-color: rgb(36, 19, 16);
 }
 
 p,
