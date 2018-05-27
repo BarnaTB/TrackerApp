@@ -89,6 +89,15 @@ li a:hover {
     text-align: left;
     cursor: pointer;
     transition: 0.3s;
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.tab a {
+    text-decoration: none;
 }
 
 .tab button:hover{
