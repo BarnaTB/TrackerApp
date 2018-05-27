@@ -130,6 +130,10 @@ table {
     margin: 0 auto;
 }
 
+a{
+    text-decoration: none;
+}
+
 #tb1,
 #tb2,
 #tb3 {
