@@ -117,6 +117,7 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     margin: 0 auto;
+    transition: 0.5s;
 }
 
 li a:hover {
@@ -125,7 +126,6 @@ li a:hover {
 }
 
 table {
-    /* padding-left: 360px; */
     width: 1000px;
     margin: 0 auto;
 }
