@@ -39,14 +39,13 @@ body {
     position: fixed;
     top: 0;
     bottom: 0;
-    /* border:1px solid #ccc; */
     border-width: 1px 0;
     z-index: 9999;
     width: 100%;
     height: 45px;
 }
 
-.navbar li{
+.navbar li {
     display: inline;
 }
 
@@ -64,8 +63,9 @@ li a:hover {
     color: black;
 }
 
-.mytab {
-    padding-left: 320px;
+table {
+    width: 1000px;
+    margin: 0 auto;
 }
 
 #tb1,
