@@ -60,6 +60,7 @@ a{
     padding: 14px 16px;
     text-decoration: none;
     margin: 0 auto;
+    transition: 0.5s;
 }
 
 li a:hover {
