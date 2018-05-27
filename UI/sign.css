@@ -30,11 +30,6 @@ body {
     margin-right: -1;
 }
 
-.signup {
-    padding-left: 440px;
-    padding-top: 30px;
-}
-
 #header {
     padding-top: 60px;
     padding-left: 30px;
@@ -66,6 +61,7 @@ div fieldset {
     border: none;
     outline: none;
     border-radius: 5px;
+    margin: 0 auto;
 }
 
 input {
@@ -76,6 +72,7 @@ input {
     border-bottom: 1px solid #BDBDBD;
     color: #3E2723;
     font-size: 15px;
+    width: 100%;
 }
 
 p {
@@ -93,9 +90,10 @@ p {
     padding-left: 100px;
     padding-right: 100px;
     opacity: 1;
+    transition: 0.5s;
 }
 
 #subBtn:hover {
     cursor: pointer;
-    background-color: #3E2723;
+    background-color: rgb(36, 19, 16);
 }
