@@ -45,6 +45,10 @@ body {
     color: #ECEFF1;
 }
 
+a{
+    text-decoration: none;
+}
+
 .signup_form_div{
     margin-bottom: 50px;
     font-weight: bold;
