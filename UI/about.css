@@ -3,7 +3,7 @@ body {
     text-align: center;
     background-size: cover;
 }
-
+/* add and style background image */
 .background-image {
     position: fixed;
     left: 0;
@@ -20,7 +20,7 @@ body {
     -ms-filter: blur(10px);
     filter: blur(10px);
 }
-
+/* position page content */
 .content {
     position: relative;
     left: 0;
@@ -30,6 +30,7 @@ body {
     margin-right: -1;
 }
 
+/* Style navigation bar */
 .navbar {
     list-style-type: none;
     margin: 0 auto;
@@ -45,11 +46,11 @@ body {
     height: 45px;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.navbar li{
+.navbar li {
     display: inline;
 }
 
@@ -68,7 +69,7 @@ li a:hover {
     color: black;
 }
 
-
+/* Style fieldset with about us content */
 div fieldset {
     width: 110px;
     padding-top: 60px;
@@ -82,12 +83,13 @@ div fieldset {
     margin: 0 auto;
 }
 
-
+/* identify active tab */
 .active {
     background-color: rgb(83, 62, 55);
     color: #fff;
 }
 
+/* style about div */
 .about_div {
     margin-bottom: 50px;
     font-weight: bold;
@@ -102,6 +104,7 @@ p {
     color: #3E2723;
 }
 
+/* Style header */
 .header {
     padding-top: 60px;
     font-family: 'Playfair Display SC', serif;
@@ -110,7 +113,6 @@ p {
     font-weight: bold;
     color: #ECEFF1;
     /* padding-left: 30px; */
-
 }
 
 p {
@@ -119,15 +121,7 @@ p {
     color: #3E2723;
 }
 
-#subBtn {
-    color: #fff;
-    background-color: black;
-    border-radius: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border: none;
-    outline: none;
-}
+/* Style submit buttons */
 
 #subBtn {
     color: #fff;
@@ -139,8 +133,11 @@ p {
     line-height: 40px;
     opacity: 1;
     transition: 0.5s;
+    border: none;
+    outline: none;
 }
 
+/* styel submit buttons on hover */
 #subBtn:hover {
     cursor: pointer;
     background-color: rgb(36, 19, 16);
