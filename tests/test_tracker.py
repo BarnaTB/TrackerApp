@@ -17,6 +17,7 @@ class Requests(unittest.TestCase):
         reply = self.tester.get('/app/v1/users/requests')
 
         self.assertEqual(reply.status_code, 201)
+        #this tests if a user can create a request
 
     def test_user_create_requests(self):
         request = dict(requesttype='requesttype', category='category', details='details')
@@ -24,6 +25,7 @@ class Requests(unittest.TestCase):
 
         self.assertEqual(reply.status_code, 201)
 
+    
 
 if __name__ == '__main__':
     unittest.main()
