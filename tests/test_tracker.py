@@ -10,7 +10,8 @@ class Requests(unittest.TestCase):
     def test_user_gets_requests(self):
         # this tests if the user can get the requests that have already been created
         request = dict(requesttype='requesttype',
-                       category='category', details='details')
+                       category='category',
+                       details='details')
 
         reply = self.tester.get('/app/v1/users/requests')
 
@@ -25,8 +26,9 @@ class Requests(unittest.TestCase):
             'details': 'The pipe to the sink is overflowing'
         })
         response = self.tester.post(
-            '/app/v1/users/requests', content_type='application/json',
-            data=json.dumps(a_request))
+                '/app/v1/users/requests',
+                content_type='application/json',
+                data=json.dumps(a_request))
         reply = json.loads(response.data.decode())
 
         self.assertEquals(reply['status'], 'OK')
