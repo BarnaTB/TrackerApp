@@ -2,3 +2,7 @@ venv/
 .vscode/
 .pytest_cache/
 __pycache__
+app/__init__.pyc
+tests/__init__.pyc
+models.pyc
+tracker.pyc
