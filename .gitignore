@@ -2,5 +2,6 @@ venv/
 .vscode/
 .pytest_cache/
 __pycache__
-__init__.pyc
+app/__init__.pyc
+tests/__init__.pyc
 models.pyc
