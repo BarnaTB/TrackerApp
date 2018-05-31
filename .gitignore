@@ -5,3 +5,4 @@ __pycache__
 app/__init__.pyc
 tests/__init__.pyc
 models.pyc
+tracker.pyc
