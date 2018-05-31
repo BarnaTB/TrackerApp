@@ -13,13 +13,15 @@ class Requests(unittest.TestCase):
                        category='category',
                        details='details')
 
-        response = self.tester.post('/app/v1/users/requests',
+        self.tester.post('/app/v1/users/requests',
                         content_type='application/json',
                         data=json.dumps(a_request))
 
-        reply = self.tester.get('/app/v1/users/requests')
+        response = self.tester.get('/app/v1/users/requests')
 
-        self.assertEqual(reply.status_code, 201)
+        reply = json.loads(response.data.encode())
+
+        self.assertEqual(reply['message'], 'Requests fetched successfully')
 
     def test_user_create_requests(self):
         # this tests if a user can create a request
