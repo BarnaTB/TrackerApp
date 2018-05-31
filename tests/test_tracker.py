@@ -9,9 +9,13 @@ class Requests(unittest.TestCase):
 
     def test_user_gets_requests(self):
         # this tests if the user can get the requests that have already been created
-        request = dict(requesttype='requesttype',
+        a_request = dict(requesttype='requesttype',
                        category='category',
                        details='details')
+
+        response = self.tester.post('/app/v1/users/requests',
+                        content_type='application/json',
+                        data=json.dumps(a_request))
 
         reply = self.tester.get('/app/v1/users/requests')
 
