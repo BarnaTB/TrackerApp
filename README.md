@@ -20,8 +20,9 @@ For any contributions, create a fork from this project into your local repositor
 # Built with
 -HTML5
 -CSS
+-Python/Flask
 
-#Prerequisites
+# Prerequisites
 -HTML5
 -Internet
 
