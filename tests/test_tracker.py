@@ -19,9 +19,8 @@ class Requests(unittest.TestCase):
 
         response = self.tester.get('/app/v1/users/requests')
 
-        reply = json.loads(response.data.encode())
-
-        self.assertEqual(reply['message'], 'Requests fetched successfully')
+        self.assertEqual(response.status_code, 201)
+        #this tests if a user can create a request
 
     def test_user_create_requests(self):
         # this tests if a user can create a request
@@ -87,6 +86,7 @@ class Requests(unittest.TestCase):
         self.assertEqual(post_reply['message'],
                          'Request fetched successfully!')
 
+    
 
 if __name__ == '__main__':
     unittest.main()
