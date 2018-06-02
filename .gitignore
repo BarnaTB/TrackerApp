@@ -6,3 +6,5 @@ app/__init__.pyc
 tests/__init__.pyc
 models.pyc
 tracker.pyc
+run.pyc
+test_tracker.pyc
