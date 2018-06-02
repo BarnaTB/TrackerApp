@@ -6,3 +6,5 @@ install:
 
 script:
   - pytest tests/test_tracker.py
+
+after_success: coveralls
