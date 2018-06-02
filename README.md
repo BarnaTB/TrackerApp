@@ -11,8 +11,8 @@ The admin as well flags requests as done or pending depending on whether or not 
 The application is currently still a website only but work is underway to bring a mobile app on board.
 
 # Future
-The application is currently only a user interface.
-Work is underway is implement the functionality of the website.
+The application is currrently using non-persistent data but work is underway to intergrate a database system where persistent data will be introduced.
+
 
 # Contribution
 For any contributions, create a fork from this project into your local repository and make the necessary changes. Create a pull request with a description of the changes which will be approved and merged into the project.
@@ -20,7 +20,7 @@ For any contributions, create a fork from this project into your local repositor
 # Built with
 -HTML5
 -CSS
--Python/Flask
+-Python/Flask(back-end)
 
 # Prerequisites
 -HTML5
