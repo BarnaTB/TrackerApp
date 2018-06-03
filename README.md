@@ -1,6 +1,7 @@
 # Maintenance Tracker App
 [![Build Status](https://travis-ci.org/BarnaTB/TrackerApp.svg?branch=develop)](https://travis-ci.org/BarnaTB/TrackerApp)
 [![Coverage Status](https://coveralls.io/repos/github/BarnaTB/TrackerApp/badge.svg?branch=)](https://coveralls.io/github/BarnaTB/TrackerApp?branch=)
+[![Maintainability](https://api.codeclimate.com/v1/badges/dbbe0f16d9c935ba4acd/maintainability)](https://codeclimate.com/github/BarnaTB/TrackerApp/maintainability)
 
 Maintenance Tracker App is an application that provides users with the ability to reach out to operations or repairs department regarding repair or maintenance requests and monitor the status of their request.
 
