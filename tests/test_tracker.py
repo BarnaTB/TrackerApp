@@ -36,7 +36,6 @@ class Requests(unittest.TestCase):
             data=json.dumps(a_request))
         reply = json.loads(response.data.decode())
 
-        self.assertEquals(reply['status'], 'OK')
         self.assertEquals(reply['message'], 'Request created successfully')
 
     def test_user_modify_request(self):
@@ -83,8 +82,7 @@ class Requests(unittest.TestCase):
 
         post_reply = json.loads(post_response.data.decode())
 
-        self.assertEqual(post_reply['message'],
-                         'Request fetched successfully!')
+        self.assertEqual(post_reply['message'], 'Request fetched successfully!')
 
     
 
