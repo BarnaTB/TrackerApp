@@ -61,10 +61,8 @@ def get_requests():
         return jsonify({
             'requests': [a_request.__dict__ for a_request in all_requests],
             'message': 'Requests fetched successfully',
-            'status': 'OK'
         }), 201
     return jsonify({
-        'status': 'FAIL',
         'message': 'Requests fetch unsuccessful!'
     }), 400
 
@@ -89,12 +87,10 @@ def get_request_by_id(requestid):
     except IndexError:
         return jsonify({
             'message': 'Request does not exist',
-            'status': 'FAIL'
         }), 400
     except ValueError:
         return jsonify({
             'message': 'Request does not exist',
-            'status': 'FAIL'
         }), 400
 
 
@@ -106,7 +102,6 @@ def modify_request(requestid):
     if len(all_requests) < 1:  # check for the number of requests
         return jsonify({
             'message': 'No requests to modify',
-            'Status': 'FAIL'
         }), 400
 
     else:
@@ -130,11 +125,10 @@ def modify_request(requestid):
                 a_request.details = req_details
 
                 return jsonify({
-                    'requesttype': a_request.requesttype,
-                    'category': a_request.category,
-                    'details': a_request.details,
+                    'request': a_request.__dict__,
+                    # 'category': a_request.category,
+                    # 'details': a_request.details,
                     'message': 'Editted successfully!',
-                    'status': 'OK'
                 }), 200
 
 
