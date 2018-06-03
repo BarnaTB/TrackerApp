@@ -46,7 +46,6 @@ def create_request():
 
     return jsonify({
         'request': new_request.__dict__,
-        'status': 'OK',
         'message': 'Request created successfully'
     }), 201
 
