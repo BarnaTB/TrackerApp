@@ -76,10 +76,7 @@ def get_request_by_id(requestid):
     try:
         if isinstance(req_id, int):
             return jsonify({
-                'id': all_requests[req_id-1]._id,
-                'requesttype': all_requests[req_id-1].requesttype,
-                'category': all_requests[req_id-1].category,
-                'details': all_requests[req_id-1].details,
+                'Request': all_requests[req_id-1].__dict__,
                 'message': 'Request fetched successfully!'
             }), 201
 
@@ -99,7 +96,9 @@ def modify_request(requestid):
     """
     this function tests enables a user modify their request
     """
-    if len(all_requests) < 1:  # check for the number of requests
+    number_of_requests = len(all_requests)
+
+    if number_of_requests < 1:  # check for the number of requests
         return jsonify({
             'message': 'No requests to modify',
         }), 400
@@ -126,8 +125,6 @@ def modify_request(requestid):
 
                 return jsonify({
                     'request': a_request.__dict__,
-                    # 'category': a_request.category,
-                    # 'details': a_request.details,
                     'message': 'Editted successfully!',
                 }), 200
 
