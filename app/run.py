@@ -45,10 +45,7 @@ def create_request():
     all_requests.append(new_request)  # append new request to the list
 
     return jsonify({
-        'id': new_request._id,
-        'requesttype': new_request.requesttype,
-        'category': new_request.category,
-        'details': new_request.details,
+        'request': new_request.__dict__,
         'status': 'OK',
         'message': 'Request created successfully'
     }), 201
