@@ -5,11 +5,6 @@ from app import app
 
 all_requests = []
 
-@app.route('/', methods=['GET'])
-def hello():
-    return 'hello world!'
-
-
 @app.route('/app/v1/users/requests', methods=['POST'])
 # this function enables a user create a request
 def create_request():
