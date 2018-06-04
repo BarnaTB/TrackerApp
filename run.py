@@ -1,4 +1,6 @@
-from app import app, views
+from flask import Flask, request, jsonify
+import json
+from app import app
 
 
 if __name__ == '__main__':
