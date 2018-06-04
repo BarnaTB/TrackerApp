@@ -1,8 +1,7 @@
 import unittest
-# from app import run
+# from .. import app
+from app import app
 import json
-from run import app
-
 
 class Requests(unittest.TestCase):
     def setUp(self):
@@ -31,10 +30,9 @@ class Requests(unittest.TestCase):
             'category': 'water',
             'details': 'The pipe to the sink is overflowing'
         })
-        response = self.tester.post(
-            '/app/v1/users/requests',
-            content_type='application/json',
-            data=json.dumps(a_request))
+        response = self.tester.post('/app/v1/users/requests',
+                                content_type='application/json',
+                                data=json.dumps(a_request))
         reply = json.loads(response.data.decode())
 
         self.assertEquals(reply['message'], 'Request created successfully')
