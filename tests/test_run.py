@@ -1,5 +1,4 @@
 import unittest
-# from .. import app
 from app import app
 import json
 
