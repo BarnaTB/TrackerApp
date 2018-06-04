@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 import json
-from models import User_request
+from app.models import User_request
 from app import app
 
 all_requests = []
