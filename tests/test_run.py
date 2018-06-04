@@ -1,11 +1,12 @@
 import unittest
-from app import run
+# from app import run
 import json
+from run import app
 
 
 class Requests(unittest.TestCase):
     def setUp(self):
-        self.tester = run.app.test_client()
+        self.tester = app.test_client(self)
 
     def test_user_gets_requests(self):
         # this tests if the user can get the requests that have already been created
