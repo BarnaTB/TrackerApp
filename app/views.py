@@ -1,13 +1,46 @@
 from flask import Flask, request, jsonify
 import json
-from app.models import User_request
+from app.models import User_request, User
 from app import app
 
 all_requests = []
+users = []
+
+@app.route('/app/v1/auth/signup', methods=['POST'])
+def register_user():
+    user_data = request.get_json()
+
+    email = user_data.get('email')
+    createPassword = user_data.get('createPassword')
+    confirmPassword = user_data.get('confirmPassword')
+
+    if not email:
+        return jsonify({'message': 'Please enter email!'}), 400
+    if not createPassword:
+        return jsonify({'message': 'Please enter password!'}), 400
+    if not confirmPassword:
+        return jsonify({'message': 'Please repeat password!'}), 400
+
+    new_user = User(email, createPassword, confirmPassword)
+
+    if createPassword != confirmPassword:
+        return jsonify({
+            'message': "Passwords don't match!"
+        }), 400
+
+    users.append(new_user)
+
+    return jsonify({
+        'email': new_user.email,
+        'message': 'New user created successfully!'
+    }), 201
+
 
 @app.route('/app/v1/users/requests', methods=['POST'])
-# this function enables a user create a request
 def create_request():
+
+    
+    # this function enables a user create a request
     request_data = request.get_json()
     # return jsonify({'message': 'hello world'})
 
@@ -16,6 +49,7 @@ def create_request():
     category = request_data.get('category')
     details = request_data.get('details')
 
+
     """
         Capture the length of all_requests list
         and set it as the first _id
@@ -23,19 +57,21 @@ def create_request():
     _id = request_data.get('_id')
     _id = len(all_requests)
 
+    
     _id += 1  # increment by 1 since the initial length is 0
 
     # check if each required field is present in the data
     if not requesttype:
-        return jsonify({'message': 'Missing request type'}), 204
+        return jsonify({'message': 'Missing request type'}), 400
     if not category:
-        return jsonify({'message': 'Missing request category'}), 204
+        return jsonify({'message': 'Missing request category'}), 400
     if not details:
-        return jsonify({'message': 'Missing request details'}), 204
+        return jsonify({'message': 'Missing request details'}), 400
     if not _id:
-        return jsonify({'message': 'Missing request id'}), 204
+        return jsonify({'message': 'Missing request id'}), 400
 
     # create a new request as an instance of the User_request class
+
     new_request = User_request(_id, requesttype, category, details)
 
     all_requests.append(new_request)  # append new request to the list
