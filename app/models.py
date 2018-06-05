@@ -19,12 +19,17 @@ class User_request:
         return self.details
 
 
-# class Request_data(User_request):
-#     def create_request_data(self, _id, requesttype, category, details):
-#         request_data = request.get_json()
+class User:
+    def __init__(self, email, createPassword, confirmPassword):
+        self.email = email
+        self.createPassword = createPassword
+        self.confirmPassword = confirmPassword
+    
+    def get_email(self):
+        return self.email
 
-#         req_type = request_data.get('requesttype')
-#         req_category = request_data.get('category')
-#         req_details = request_data.get('details')
-
-#         return request_data
+    def get_createPassword(self):
+        return self.createPassword
+    
+    def get_confirmPassword(self):
+        return self.confirmPassword
