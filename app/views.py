@@ -63,11 +63,11 @@ def create_request():
     # check if each required field is present in the data
     if not requesttype:
         return jsonify({'message': 'Missing request type'}), 400
-    elif not category:
+    if not category:
         return jsonify({'message': 'Missing request category'}), 400
-    elif not details:
+    if not details:
         return jsonify({'message': 'Missing request details'}), 400
-    elif not _id:
+    if not _id:
         return jsonify({'message': 'Missing request id'}), 400
 
     # create a new request as an instance of the User_request class
