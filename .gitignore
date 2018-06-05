@@ -10,3 +10,4 @@ run.pyc
 test_tracker.pyc
 views.pyc
 test_run.pyc
+*.pyc
