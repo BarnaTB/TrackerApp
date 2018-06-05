@@ -82,6 +82,76 @@ class Requests(unittest.TestCase):
 
         self.assertEqual(post_reply['message'], 'Request fetched successfully!')
 
+#create class to test user objects
+class User(unittest.TestCase):
+    def setUp(self):
+        self.tester = app.test_client(self)
+
+    def test_create_user(self):
+        user_data = ({
+            'email': 'barna@gmail.com',
+            'createPassword': '123456',
+            'confirmPassword': '123456'
+        })
+
+        response = self.tester.post('/app/v1/auth/signup',
+                        content_type='application/json',
+                        data=json.dumps(user_data))
+
+        reply = json.loads(response.data.decode())
+
+        self.assertEqual(reply['message'], 'New user created successfully!')
+
+    # def test_user_login(self):
+    #     sign_up_data = ({
+    #         'email': 'barna@gmail.com',
+    #         'createPassword': '123456',
+    #         'confirmPassword': '123456'
+    #     })
+
+    #     login_data = ({
+    #         'email': 'barna@gmail.com',
+    #         'password': '123456'
+    #     })
+
+    #     self.tester.post('/app/v1/auth/signup',
+    #                     content_type='application/json',
+    #                     data = json.dumps(sign_up_data)
+
+    #     response = self.tester.post('/app/v1/auth/login',
+    #                         content_type='application/json',
+    #                         data = json.dumps(login_data)
+
+    #     reply = json.loads(response.data.decode())
+
+    #     self.assertEqual(reply['message'], 'Successfully logged in!')
+
+    # def test_user_enters_wrong_credentials(self):
+        # sign_up_data = ({
+        #     'email': 'barna@gmail.com',
+        #     'createPassword': '123456',
+        #     'confirmPassword': '123456'
+        # })
+
+        # login_data = ({
+        #     'email': 'uahsl@gmail.com',
+        #     'password': '1471226'
+        # })
+
+        # self.tester.post('/app/v1/auth/signup',
+        #                 content_type='application/json',
+        #                 data = json.dumps(sign_up_data)
+
+        # response = self.tester.post('/app/v1/auth/login',
+        #                     content_type='application/json',
+        #                     data = json.dumps(login_data)
+
+        # reply = json.loads(response.data.decode())
+
+        # self.assertEqual(reply['message'], 'Oops! Wrong email or password!')
+
+
+
     
 
 if __name__ == '__main__':
