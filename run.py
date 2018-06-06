@@ -1,9 +1,21 @@
-from flask import Flask, request, jsonify
-import json
 from app import app
-import os
+app.run(debug=True)
+# from flask import Flask, request, jsonify
+# import json
+
+# app = Flask(__name__)
+
+# #from app import app
+# #from flask import Flask
 
 
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(debug='True', host="0.0.0.0", port=port)
+
+# #from app import views
+
+# import os
+# #from app.db import My_db
+
+# from app import views
+# with app.app_context():
+#     port = int(os.environ.get("PORT", 5000))
+#     app.run(debug=True, host="0.0.0.0", port=port)
