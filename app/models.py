@@ -5,8 +5,8 @@ import uuid
 db = Mydb()
 
 class Request:
-    def __init__(self, _id, requesttype, category, details):
-        self._id = _id
+    def __init__(self, requesttype, category, details):
+        # self._id = _id
         self.requesttype = requesttype
         self.category = category
         self.details = details
@@ -26,31 +26,28 @@ class Request:
     def get_db():
         return self.db
 
-    def create_request(self, requestid, requesttype, category, details):
-        _request = {
-            'requestid': requestid,
-            'requesttype': requesttype,
-            'category': category,
-            'details': details
-        }
+    def create_request(self, decoded):
 
-        db.add_request(_request['requestid'], _request['requesttype'], _request['category'], _request['details'])
+        db.add_request(self.requesttype,self.category, self.details, decoded)
 
-        return Mydb.get_single_request(requestid)
+        # return Mydb.get_single_request()
 
-    def fetch_all_requests(self):
+    @staticmethod
+    def fetch_all_requests():
         All_requests = []
         for _request in db.get_all_requests():
             All_requests.append(_request)
             
         return Allrequests
 
-    def fetch_request_by_id(self, requestid):
+    @staticmethod
+    def fetch_request_by_id(requestid):
         _request = db.get_single_request(requestid)
         req_dict = {}
-        req_dict['req_id'] = _request[0]
-        req_dict['requesttype'] = _request[1]
-        req_dict['category'] = _request[2]
+        req_dict['id'] = _request[0][0]
+        req_dict['requesttype'] = _request[0][1]
+        req_dict['category'] = _request[0][2]
+        req_dict['details'] = _request[0][3]
 
         return req_dict
 
@@ -70,7 +67,7 @@ class User:
         self.email = email
         self.createPassword = createPassword
         self.confirmPassword = confirmPassword
-        self.db = Userdb()
+        # self.db = Userdb()
     
     def get_email(self):
         return self.email
@@ -88,10 +85,22 @@ class User:
         return db.create_user_table()
 
     def create_user(self, email, confirmPassword):
-        user_id = uuid.uuid1()
-        User = {
-            'userid': str(user_id),
+        # userid = uuid.uuid1()
+        user = {
             'email': email,
             'password': confirmPassword 
         }
-        return self.db.add_user(user_id, email, confirmPassword)
+        try:
+            return Userdb().add_user(email, confirmPassword)
+        except:
+            return {'message': 'User already exists'}
+    @staticmethod
+    def validate_user(email, password):
+        """ return a user by email """
+        get_user = Userdb()
+        user = get_user.get_user_by_email(email, password)
+
+        if user is None:
+            return jsonify({'message': 'Oops! Wrong credentials!'})
+        
+        return user
