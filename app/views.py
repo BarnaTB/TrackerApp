@@ -5,38 +5,12 @@ from app import app
 from app.db import Mydb, Userdb
 import jwt
 import datetime
-from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, decode_token
+import re
 
 all_requests = []
 users = []
-
-app.config['SECRET_KEY'] = 'thisismykisumuluzo'
-
-
-def token_required(f):
-    @wraps(f)
-    def decorated(*args, **kwargs):
-        token = request.args.get('token')
-
-        if not token:
-            return jsonify({'message': 'Missing token!'})
-        try:
-            data = jwt.decode(token, app.config['SECRET_KEY'])
-        except:
-            return jsonify({'message': 'Invalid token!'})
-
-        return f(*args, **kwargs)
-
-
-@app.route('/unprotected')
-def unprotected():
-    pass
-
-
-@app.route('/protected')
-def protected():
-    pass
 
 
 @app.route('/app/v1/auth/signup', methods=['POST'])
@@ -56,49 +30,53 @@ def register_user():
         return jsonify({'message': 'Please enter password!'}), 400
     if not confirmPassword:
         return jsonify({'message': 'Please repeat password!'}), 400
+    if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+        return jsonify({'message': 'Invalid email address'}), 406
+    if not re.match(r"[A-Za-z0-9@#$%^&+=]{8,}", password):
+        return jsonify({'message': 'Password not strong enough!'}), 406
 
     new_user = User(
-        user_data['email'], user_data['createPassword'], user_data['confirmPassword'])
+        user_data['email'], user_data['createPassword'], hashed_password)
 
     if user_data['createPassword'] != user_data['confirmPassword']:
         return jsonify({
             'message': "Passwords don't match!"
-        }), 400
+        }), 406
 
     # new_user.add_user_table()
-    new_user.create_user(user_data['email'], hashed_password)
+    data = new_user.create_user(user_data['email'], hashed_password)
 
+    if not data:
+        data = 'user created'
     return jsonify({
-        'email': new_user.email,
-        'message': 'New user created successfully!'
+        'message': data
     }), 201
 
 
 @app.route('/app/v1/auth/login', methods=['POST'])
 def login():
     # function to login a user
-    auth = request.authorization
+    user_data = request.get_json()
 
-    email = auth.get('email')
-    password = auth.get('password')
+    email = user_data.get('email')
+    password = user_data.get('password')
 
-    if not auth.email:
-        return jsonify({'message': 'Please enter your email!'}), 400
-    if not auth.password:
-        return jsonify({'message': 'Please enter your password!'}), 400
-    if auth and auth.email == 'email' and auth.password == 'password':
-        token = jwt.encode({'user': auth.email, 'exp': datetime.datetime.utcnow(
-        ) + datetime.timedelta(minutes=1)})
+    if not email:
+        return jsonify({'message': 'Missing email'}), 400
+    if not password:
+        return jsonify({'message': 'Missing password!'}), 400
 
-        return jsonify({'token': token.decode('UTF-8')})
+    user_auth = User.validate_user(email, password)
 
-    return jsonify({'message': 'Can not log you in!'})
+    token = create_access_token(identity=user_auth)
+
+    return jsonify({'token': token})
 
 
 @app.route('/app/v1/users/requests', methods=['POST'])
+@jwt_required
 def create_request():
-
-    # this function enables a user create a request
+    """ this function enables a user create a request """
     request_data = request.get_json()
 
     # add the data into the json object
@@ -106,48 +84,51 @@ def create_request():
     category = request_data.get('category')
     details = request_data.get('details')
 
+    decoded = decode_token(token)
+
     """
         Capture the length of all_requests list
-        and set it as the first _id
+        and set it as the first _id then increment it by one for each request's id
     """
-    _id = request_data.get('_id')
-    _id = len(all_requests)
 
-    _id += 1  # increment by 1 since the initial length is 0
-
-    # check if each required field is present in the data
-    if not requesttype:
+    if not requesttype and len(requesttype.strip(" ")) != 0:
         return jsonify({'message': 'Missing request type'}), 400
-    if not category:
+    if not category and len(category.strip(" ")) != 0:
         return jsonify({'message': 'Missing request category'}), 400
-    if not details:
+    if not details and len(details.strip(" ")) != 0:
         return jsonify({'message': 'Missing request details'}), 400
-    if not _id:
-        return jsonify({'message': 'Missing request id'}), 400
 
-    # create a new request as an instance of the User_request class
-
-    new_req = Request(_id, request_data['requesttype'],
-                      request_data['category'], request_data['details'])
-    new_req.create_request(request_data['_id'], request_data['requesttype'],
-                           request_data['category'], request_data['details'])
+    # create a new request as an instance of the Request class
+    new_req = Request(
+        request_data['requesttype'], request_data['category'], request_data['details'])
+    new_req.create_request(decoded)
     # append new request to the list
     all_requests.append(new_req)
 
     return jsonify({
-        'request': new_request,
+        'request': new_req.__dict__,
         'message': 'Request created successfully'
     }), 201
 
 
 @app.route('/app/v1/users/requests', methods=['GET'])
 # this function enables a user to fetch their requests
+@jwt_required
 def get_requests():
+
+    request_data = request.get_json()
+
+    requesttype = request_data.get('requesttype')
+    category = request_data.get('category')
+    details = request_data.get('details')
+
     # collect the length of the list in which all requests are
     number_of_requests = len(all_requests)
 
     # check that the number of requests is not 0
     if number_of_requests > 0:
+        get_them_all = Request
+        get_them_all.fetch_all_requests()
         return jsonify({
             'requests': [a_request.__dict__ for a_request in all_requests],
             'message': 'Requests fetched successfully',
@@ -159,14 +140,16 @@ def get_requests():
 
 @app.route('/app/v1/users/requests/<requestid>', methods=['GET'])
 # this function enables a user get fetch a request by it's id
+@jwt_required
 def get_request_by_id(requestid):
 
     req_id = int(requestid)  # convert the requestid into an interger
 
     try:
         if isinstance(req_id, int):
+            one_request = Request.fetch_request_by_id(requestid)
             return jsonify({
-                'Request': all_requests[req_id-1].__dict__,
+                'Request': one_request,
                 'message': 'Request fetched successfully!'
             }), 201
 
@@ -182,9 +165,10 @@ def get_request_by_id(requestid):
 
 
 @app.route('/app/v1/users/requests/<int:requestid>', methods=['PUT'])
+@jwt_required
 def modify_request(requestid):
     """
-    this function tests enables a user modify their request
+    # this function tests enables a user modify their request
     """
     number_of_requests = len(all_requests)
 
@@ -204,8 +188,8 @@ def modify_request(requestid):
 
         for a_request in all_requests:
             """
-            loop through each request while checking if the passed id is equal
-            to any request id
+            # loop through each request while checking if the passed id is equal
+            # to any request id
 
             """
             if a_request._id == requestid:
