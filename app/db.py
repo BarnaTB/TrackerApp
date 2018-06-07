@@ -1,4 +1,5 @@
 import psycopg2
+import uuid
 
 
 class Mydb:
@@ -24,35 +25,34 @@ class Mydb:
 
     def create_request_table(self):
         self.cur.execute(
-            "CREATE TABLE IF NOT EXISTS requests (id INT, requesttype TEXT, category TEXT, details TEXT);")
+            "CREATE TABLE IF NOT EXISTS requests (user_id SERIAL, email VARCHAR, requesttype TEXT, category TEXT, details TEXT);")
+        self.conn.commit()
 
-    def add_request(self, id, requesttype, category, details):
-        self.cur.execute("INSERT INTO requests (requesttype, category, details) VALUES ({}, {}, {});",
-                         (requesttype, category, details))
-        self.close_conn()
+    def add_request(self, requesttype, category, details, decoded):
+        self.create_request_table()
+        self.cur.execute("INSERT INTO requests (email, requesttype, category, details) VALUES ('{}', '{}', '{}', '{}');".format(
+            decoded, requesttype, category, details))
+        self.conn.commit()
+        # self.close_conn()
 
-    def get_all_requests(self):
+    def get_all_requests(self, email):
         self.connect()
-        self.cur.execute("SELECT * FROM requests")
+        self.cur.execute("SELECT * FROM requests WHERE email={};".format(email))
         _requests = self.cur.fetchall()
         self.close_conn()
         return _requests
 
     def get_single_request(self, requestid):
         self.cur.execute(
-            "SELECT * FROM requests WHERE  id = {};".format(requestid))
-        request = self.cur.fetchone()
-        self.close_conn()
+            "SELECT * FROM requests WHERE  id = '{}';".format(requestid))
+        request = self.cur.fetchall()
+        # self.close_conn()
         return request
 
-    def modify_request(self, requestid, requesttype, category, details):
-        self.requestid = requestid
-        self.requesttype = requesttype
-        self.category = category
-        self.details = details
+    def modify_request(self, requestid, requesttype, category, details, email):
         # self.cur.execute("SELECT * FROM requests WHERE id = {};".format(requestid))
-        self.cur.execute("UPDATE requests SET requesttype = {} category = {}, details = {} WHERE id == {};".format(
-            self.requestype, self.category, self.details, self.requestid))
+        self.cur.execute("UPDATE requests SET requesttype={} category={}, details={} WHERE id={} AND email={};".format(
+            requestype, slf.category, details, requestid, email))
         self.close_conn()
 
 
@@ -68,12 +68,21 @@ class Userdb:
     def create_user_table(self):
         # self.connect()
         self.cur.execute(
-            "CREATE TABLE IF NOT EXISTS users (user_id INT, email TEXT, password TEXT);")
+            "CREATE TABLE IF NOT EXISTS users (email TEXT UNIQUE, password TEXT, role varchar(6));")
+        self.conn.commit()
+
+    def add_user(self, email, confirmPassword, role='user'):
+        self.create_user_table()
+        # self.connect()
+        self.cur.execute("INSERT INTO users(email, Password, role) VALUES ('{}', '{}', {});".format(
+            email, confirmPassword, role))
+        self.conn.commit()
         self.close_conn()
 
-    def add_user(self, user_id, email, confirmPassword):
-        # self.create_user_table()
-        # self.connect()
-        self.cur.execute("INSERT INTO users(userid, email, Password) VALUES ({}, {}, {});".format(
-            user_id, email, confirmPassword))
-        self.close_conn()
+    def get_user_by_email(self, email, password):
+        self.cur.execute("SELECT email, password FROM users WHERE email='{}' AND password='{}';".format(email, password))
+        self.conn.commit()
+        row = self.cur.fetchall()
+        if row is None:
+            return None
+        return row
