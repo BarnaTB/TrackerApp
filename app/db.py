@@ -79,7 +79,7 @@ class Userdb:
         self.close_conn()
 
     def get_user_by_email(self, email, password):
-        self.cur.execute("SELECT email, password FROM users WHERE email='{}' AND password='{}';".format(email, password))
+        self.cur.execute("SELECT email, password FROM users WHERE email='{}' AND Password='{}';".format(email, password))
         self.conn.commit()
         row = self.cur.fetchall()
         if row is None:

@@ -101,6 +101,8 @@ class User:
         get_user = Userdb()
         user = get_user.get_user_by_email(email, password)
 
+        if password == user:
+            return jsonify({'message': 'user authentic!'})
         if user is None:
             return jsonify({'message': 'Oops! Wrong credentials!'})
         

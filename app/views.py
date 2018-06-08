@@ -32,9 +32,11 @@ def register_user():
         return jsonify({'message': 'Please enter password!'}), 400
     if not confirmPassword:
         return jsonify({'message': 'Please repeat password!'}), 400
-    if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+    # source: https://docs.python.org/2/howto/regex.html
+    if not re.match(r"[^@.]+@[^@]+\.[^@]+", email):
         return jsonify({'message': 'Invalid email address'}), 406
-    if not re.match(r"[A-Za-z0-9@#$%^&+=]{8,}", password):
+    # source: https://docs.python.org/2/howto/regex.html
+    if not re.match(r"[A-Za-z0-9@#]{6,}", createPassword):
         return jsonify({'message': 'Password not strong enough!'}), 406
 
     new_user = User(
@@ -70,15 +72,17 @@ def login():
         return jsonify({'message': 'Missing email'}), 400
     if not password:
         return jsonify({'message': 'Missing password!'}), 400
+    if password == User.validate_user(email, password):
 
-    user_auth = User.validate_user(email, password)
+        token = create_access_token(identity=user_auth)
 
-    token = create_access_token(identity=user_auth)
+        return jsonify({'token': token}), 200
 
-    return jsonify({'token': token})
+    return jsonify({'message': 'Wrong email or password!'}), 401
 
 
 @app.route('/app/v1/users/requests', methods=['POST'])
+@jwt_required
 def create_request():
     """ 
         this function enables a user create a request 
@@ -109,6 +113,7 @@ def create_request():
 
 
 @app.route('/app/v1/users/requests', methods=['GET'])
+@jwt_required
 def get_requests():
     """
     This function enables a user to get back all their requests from the database
@@ -142,13 +147,13 @@ def get_requests():
 def get_request_by_id(requestid):
     """
     This function enables a user to get back a single request from the database
-    which is identified by the current_user_email paramater
+    which is identified by the requestid paramater
 
-    Params: current_user_email is passed in the function and it takes the email
-    that the user logged in with, decoded from the token they received on login
+    Params: requestid is passed in the function and it takes the reqest id of the request 
+    that is stored in the database and if it is not in the database, an error message is returned 
     """
 
-    req_id = int(requestid)  
+    req_id = int(requestid)
 
     try:
         if isinstance(req_id, int):
@@ -161,9 +166,12 @@ def get_request_by_id(requestid):
     # this returns an error message if the requested id doesn't exist
     except IndexError:
         return jsonify({
-            'message': 'Request does not exist',
+            'message': 'Request does not exist'
         }), 400
     except ValueError:
         return jsonify({
-            'message': 'Request does not exist',
+            'message': 'Request does not exist'
+        }), 400
+    except TypeError:
+        return jsonify({'message': 'Please enter a number!'
         }), 400
