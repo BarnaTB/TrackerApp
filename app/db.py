@@ -25,15 +25,14 @@ class Mydb:
 
     def create_request_table(self):
         self.cur.execute(
-            "CREATE TABLE IF NOT EXISTS requests (user_id SERIAL, email VARCHAR, requesttype TEXT, category TEXT, details TEXT);")
+            "CREATE TABLE IF NOT EXISTS requests (id SERIAL, requesttype TEXT, category TEXT, details TEXT, email TEXT);")
         self.conn.commit()
 
-    def add_request(self, requesttype, category, details, decoded):
+    def crt_request(self, requesttype, category, details, current_user_email):
         self.create_request_table()
-        self.cur.execute("INSERT INTO requests (email, requesttype, category, details) VALUES ('{}', '{}', '{}', '{}');".format(
-            decoded, requesttype, category, details))
+        self.cur.execute("INSERT INTO requests (requesttype, category, details, email) VALUES ('{}', '{}', '{}', '{}');".format(requesttype, category, details, current_user_email))
         self.conn.commit()
-        # self.close_conn()
+        self.close_conn()
 
     def get_all_requests(self, email):
         self.connect()
@@ -42,9 +41,9 @@ class Mydb:
         self.close_conn()
         return _requests
 
-    def get_single_request(self, requestid):
+    def get_single_request(self, email, requestid):
         self.cur.execute(
-            "SELECT * FROM requests WHERE  id = '{}';".format(requestid))
+            "SELECT * FROM requests WHERE  email={} and id = '{}';".format(email, requestid))
         request = self.cur.fetchall()
         # self.close_conn()
         return request
