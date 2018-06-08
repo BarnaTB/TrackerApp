@@ -15,7 +15,9 @@ users = []
 
 @app.route('/app/v1/auth/signup', methods=['POST'])
 def register_user():
-    # function to register a user
+    """
+        This function enables a user to signup byt entering their password which will be able 
+    """
     user_data = request.get_json()
 
     hashed_password = generate_password_hash(user_data['confirmPassword'])
@@ -55,7 +57,10 @@ def register_user():
 
 @app.route('/app/v1/auth/login', methods=['POST'])
 def login():
-    # function to login a user
+    """
+        This function enables a user to login using their credentials that are stored in the database
+        and they receive a token which they use to access the various other routes whose permissions they have.
+    """
     user_data = request.get_json()
 
     email = user_data.get('email')
@@ -74,22 +79,17 @@ def login():
 
 
 @app.route('/app/v1/users/requests', methods=['POST'])
-@jwt_required
 def create_request():
-    """ this function enables a user create a request """
+    """ 
+        this function enables a user create a request 
+        it captures the length of all_requests list
+        and set it as the first _id then increment it by one for each request's id
+    """
     request_data = request.get_json()
 
-    # add the data into the json object
     requesttype = request_data.get('requesttype')
     category = request_data.get('category')
     details = request_data.get('details')
-
-    decoded = decode_token(token)
-
-    """
-        Capture the length of all_requests list
-        and set it as the first _id then increment it by one for each request's id
-    """
 
     if not requesttype and len(requesttype.strip(" ")) != 0:
         return jsonify({'message': 'Missing request type'}), 400
@@ -98,10 +98,7 @@ def create_request():
     if not details and len(details.strip(" ")) != 0:
         return jsonify({'message': 'Missing request details'}), 400
 
-    # create a new request as an instance of the Request class
-    new_req = Request(
-        request_data['requesttype'], request_data['category'], request_data['details'])
-    new_req.create_request(decoded)
+    new_req = Request.add_request(current_user_email)
     # append new request to the list
     all_requests.append(new_req)
 
@@ -112,20 +109,22 @@ def create_request():
 
 
 @app.route('/app/v1/users/requests', methods=['GET'])
-# this function enables a user to fetch their requests
-@jwt_required
 def get_requests():
+    """
+    This function enables a user to get back all their requests from the database
+    which are identified by the current_user_email paramater
 
+    Params: current_user_email is passed in the function and it takes the email
+    that the user logged in with, decoded from the token they received
+    """
     request_data = request.get_json()
 
     requesttype = request_data.get('requesttype')
     category = request_data.get('category')
     details = request_data.get('details')
 
-    # collect the length of the list in which all requests are
     number_of_requests = len(all_requests)
 
-    # check that the number of requests is not 0
     if number_of_requests > 0:
         get_them_all = Request
         get_them_all.fetch_all_requests()
@@ -139,11 +138,17 @@ def get_requests():
 
 
 @app.route('/app/v1/users/requests/<requestid>', methods=['GET'])
-# this function enables a user get fetch a request by it's id
 @jwt_required
 def get_request_by_id(requestid):
+    """
+    This function enables a user to get back a single request from the database
+    which is identified by the current_user_email paramater
 
-    req_id = int(requestid)  # convert the requestid into an interger
+    Params: current_user_email is passed in the function and it takes the email
+    that the user logged in with, decoded from the token they received on login
+    """
+
+    req_id = int(requestid)  
 
     try:
         if isinstance(req_id, int):
@@ -162,42 +167,3 @@ def get_request_by_id(requestid):
         return jsonify({
             'message': 'Request does not exist',
         }), 400
-
-
-@app.route('/app/v1/users/requests/<int:requestid>', methods=['PUT'])
-@jwt_required
-def modify_request(requestid):
-    """
-    # this function tests enables a user modify their request
-    """
-    number_of_requests = len(all_requests)
-
-    if number_of_requests < 1:  # check for the number of requests
-        return jsonify({
-            'message': 'No requests to modify',
-        }), 400
-
-    else:
-
-        request_data = request.get_json()
-
-        # enter the attributes into the json object
-        req_type = request_data.get('requesttype')
-        req_category = request_data.get('category')
-        req_details = request_data.get('details')
-
-        for a_request in all_requests:
-            """
-            # loop through each request while checking if the passed id is equal
-            # to any request id
-
-            """
-            if a_request._id == requestid:
-                a_request.requesttype = req_type
-                a_request.requesttype = req_category
-                a_request.details = req_details
-
-                return jsonify({
-                    'request': a_request.__dict__,
-                    'message': 'Editted successfully!',
-                }), 200
