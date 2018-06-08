@@ -26,9 +26,10 @@ class Request:
     def get_db():
         return self.db
 
-    def create_request(self, decoded):
+    @staticmethod
+    def add_request(current_user_email):
 
-        db.add_request(self.requesttype,self.category, self.details, decoded)
+        db.crt_request(self.requesttype,self.category, self.details, self.current_user_email)
 
         # return Mydb.get_single_request()
 
