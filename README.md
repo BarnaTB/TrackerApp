@@ -14,7 +14,6 @@ The requests can then be retrieved by the user from the database.
 The application is currrently using persistent data with postgres database but work is underway to intergrate a user interface using ReactJS.
 The backend is also still under development to implement more user authentication, that is, an admin and a normal user.
 
-
 # Contribution
 For any contributions, create a fork from this project into your local repository and make the necessary changes. Create a pull request with a description of the changes which will be approved and merged into the project.
 

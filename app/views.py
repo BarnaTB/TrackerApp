@@ -16,7 +16,10 @@ users = []
 @app.route('/app/v1/auth/signup', methods=['POST'])
 def register_user():
     """
-        This function enables a user to signup byt entering their password which will be able 
+        This function enables a user to signup by entering their email and create a password
+        which they are required to repeat and if the two passwords are not equal or if they don't match the required standards,
+        the appropriate error message is returned.
+        If they are correct and the right email structure is followed, they are required to login with the same credentials.
     """
     user_data = request.get_json()
 
@@ -51,7 +54,7 @@ def register_user():
     data = new_user.create_user(user_data['email'], hashed_password)
 
     if not data:
-        data = 'user created'
+        data = 'User created successfully'
     return jsonify({
         'message': data
     }), 201
